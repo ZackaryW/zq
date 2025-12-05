@@ -1,0 +1,5 @@
+pre-commit:
+  commands:
+    bump-version:
+      run: python scripts/bump_version.py
+      stage_fixed: true
