@@ -1,0 +1,2 @@
+# zq
+personal quick shell
