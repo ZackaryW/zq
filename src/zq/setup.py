@@ -1,10 +1,23 @@
 import os
 import click
 
-@click.group()
-def setup():
+@click.group(invoke_without_command=True)
+@click.option("--force-update", "-f", is_flag=True, help="Force update the my_win_env repository")
+@click.option("--reset", "-r", is_flag=True, help="Reset my_win_env to original state")
+@click.pass_context
+def setup(ctx, force_update, reset):
     """Setup Commands group"""
-    pass
+    from zq.utils.my_win_env import update_repo, MY_WIN_ENV
+    if force_update:
+        update_repo()
+    if reset:
+        if MY_WIN_ENV.exists():
+            import shutil
+            shutil.rmtree(MY_WIN_ENV)
+        update_repo(force=True)
+    if ctx.invoked_subcommand is None:
+        click.echo(ctx.get_help())
+
 
 @setup.command()
 def crack():
