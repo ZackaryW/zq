@@ -1,4 +1,16 @@
 import re
+import subprocess
+
+# Check if pyproject.toml is staged (has changes)
+result = subprocess.run(
+    ['git', 'diff', '--cached', '--name-only'],
+    capture_output=True,
+    text=True
+)
+
+if 'pyproject.toml' in result.stdout:
+    print("pyproject.toml already staged - skipping version bump")
+    exit(0)
 
 with open('pyproject.toml', 'r') as f:
     content = f.read()
