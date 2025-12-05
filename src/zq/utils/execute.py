@@ -1,6 +1,6 @@
 
 
-def execute_cmd(command : str, watch_non_zero : bool = True):
+def execute_cmd(command : str, watch_non_zero : bool = False):
     # first try pwsh then fallback to powershell, then cmd
     import os
     try:
