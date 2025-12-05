@@ -1,2 +1,1 @@
 # zq
-personal quick shell
