@@ -19,4 +19,3 @@ def update_repo(force : bool = False):
         os.system("git pull")
         os.chdir(curr_cwd)
 
-update_repo()   

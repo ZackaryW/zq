@@ -10,8 +10,9 @@ from zq.utils.execute import execute_cmd
 def setup(ctx, force_update, reset):
     """Setup Commands group"""
     from zq.utils.my_win_env import update_repo, MY_WIN_ENV
+    update_repo()   
     if force_update:
-        update_repo()
+        update_repo(force=True)
     if reset:
         if MY_WIN_ENV.exists():
             import shutil
