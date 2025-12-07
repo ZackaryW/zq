@@ -1,6 +1,6 @@
 [project]
 name = "zq"
-version = "0.1.9"
+version = "0.1.10"
 description = "zq"
 readme = "README.md"
 authors = [
