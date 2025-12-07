@@ -24,7 +24,9 @@ def open_vault(id):
     import platform
     if platform.system() == "Windows":
         subprocess.run(["cmd", "/c", "start", f"obsidian://open?vault={id}"], shell=False)  
-
+    elif platform.system() == "Darwin":  # macOS
+        subprocess.run(["open", f"obsidian://open?vault={id}"])
+        
 def get_vault_id(name : str):
     for vault_id, vault in get_config().get("vaults", {}).items():
         path = vault.get("path", None)
